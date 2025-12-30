@@ -1,13 +1,23 @@
-import { Shield, AlertTriangle, Thermometer, Radio } from "lucide-react"
+import { Shield, Wind, Thermometer, Zap } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-background to-background opacity-90" />
+    <section className="relative min-h-[90vh] overflow-hidden bg-background flex items-center">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-helmet.png"
+          alt="HelmGuard Background"
+          fill
+          className="object-cover opacity-20 blur-md scale-110"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+      </div>
 
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         {[...Array(30)].map((_, i) => (
           <div
             key={i}
@@ -22,71 +32,49 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col justify-center animate-slide-in-left">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground w-fit animate-bounce-subtle">
-              <Shield className="h-4 w-4" />
-              IoT Safety Innovation
-            </div>
-
-            <h1 className="text-5xl font-bold tracking-tight text-foreground lg:text-6xl text-balance">
-              Smart IoT Safety Helmet
-            </h1>
-            <p className="mt-4 text-xl text-muted-foreground lg:text-2xl text-balance">
-              For Mining and Construction Workers
-            </p>
-
-            <p className="mt-6 text-lg leading-relaxed text-foreground/80">
-              Real-time monitoring of hazardous conditions to prevent industrial accidents.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-transform"
-              >
-                <Link href="/dashboard">View Live Dashboard</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="hover:scale-105 transition-transform bg-transparent"
-              >
-                <Link href="/architecture">System Architecture</Link>
-              </Button>
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {[
-                { icon: AlertTriangle, label: "Gas Detection" },
-                { icon: Thermometer, label: "Temperature" },
-                { icon: Radio, label: "Fall Detection" },
-                { icon: Shield, label: "Instant Alerts" },
-              ].map((item, index) => (
-                <div
-                  key={item.label}
-                  className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-4 text-center hover:border-accent-foreground hover:shadow-lg transition-all hover:scale-105 animate-fade-in"
-                  style={{ animationDelay: `${0.1 * index}s` }}
-                >
-                  <item.icon className="h-6 w-6 text-accent-foreground" />
-                  <span className="text-xs font-medium text-card-foreground">{item.label}</span>
-                </div>
-              ))}
-            </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-40">
+        <div className="flex flex-col items-center text-center">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-muted-foreground animate-fade-in">
+            <span className="flex h-2 w-2 rounded-full bg-accent animate-pulse" />
+            Next-Gen Protection
           </div>
 
-          <div className="relative flex items-center justify-center animate-slide-in-right">
-            <div className="relative">
-              <div className="absolute inset-0 bg-accent/20 blur-3xl animate-pulse-slow" />
-              <img
-                src="/images/chatgpt-20.png"
-                alt="Smart Safety Helmet with IoT Sensors"
-                className="relative rounded-lg hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          <h1 className="text-7xl font-bold tracking-tighter text-foreground lg:text-9xl text-balance leading-[0.85] uppercase">
+            HelmGuard
+          </h1>
+          <p className="mt-8 max-w-2xl text-xl font-medium tracking-tight text-muted-foreground lg:text-2xl text-balance">
+            Real-time safety monitoring for industrial workers.
+          </p>
+
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base font-bold uppercase tracking-widest"
+            >
+              <Link href="/dashboard">Access Dashboard</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="hover:scale-105 transition-transform bg-transparent">
+              <Link href="/architecture">System Architecture</Link>
+            </Button>
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4 w-full max-w-4xl">
+            {[
+              { icon: Wind, label: "Gas Detection" },
+              { icon: Thermometer, label: "Temperature" },
+              { icon: Shield, label: "Fall Detection" },
+              { icon: Zap, label: "Instant Alerts" },
+            ].map((item, index) => (
+              <div
+                key={item.label}
+                className="flex flex-col items-center gap-3 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm p-6 text-center hover:border-accent hover:shadow-2xl transition-all hover:-translate-y-1 animate-fade-in"
+                style={{ animationDelay: `${0.1 * index}s` }}
+              >
+                <item.icon className="h-8 w-8 text-accent-foreground" />
+                <span className="text-sm font-bold uppercase tracking-wider text-card-foreground">{item.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

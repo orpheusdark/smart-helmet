@@ -7,7 +7,7 @@ import { LoadingScreen } from "@/components/loading-screen"
 import { useEffect, useState } from "react"
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
-  // <CHANGE> Add loading state to show loader on initial page load
+  // Add loading state to show loader on initial page load
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -27,3 +27,5 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
     </>
   )
 }
+
+export default ClientLayout

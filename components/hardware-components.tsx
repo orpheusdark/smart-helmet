@@ -1,4 +1,5 @@
 import { Cpu, Radio, Thermometer, Gauge, Bell, Battery, HardHat } from "lucide-react"
+import Image from "next/image"
 
 export function HardwareComponents() {
   const components = [
@@ -47,16 +48,25 @@ export function HardwareComponents() {
   ]
 
   return (
-    <section className="py-20">
+    <section className="py-24 bg-muted/30">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground lg:text-4xl">Hardware Components</h2>
+          <h2 className="text-4xl font-bold tracking-tight text-foreground uppercase">Hardware Components</h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
             Industrial-grade sensors and electronics for reliable operation in harsh environments.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+          <Image
+            src="/images/hardware-schematic.png"
+            alt="HelmGuard Hardware Schematic"
+            fill
+            className="object-contain p-8"
+          />
+        </div>
+
+        <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {components.map((component) => (
             <div
               key={component.name}

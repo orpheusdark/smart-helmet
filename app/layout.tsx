@@ -13,10 +13,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Safety helmet...</title>
+        <title>HelmGuard | Real-time industrial safety</title>
         <meta
           name="description"
-          content="Real-time monitoring of hazardous conditions to prevent industrial accidents in mining and construction"
+          content="Real-time safety monitoring for industrial workers. Advanced IoT protection for mining, construction, and hazardous environments."
         />
       </head>
       <body className={`font-sans antialiased`}>
@@ -29,5 +29,5 @@ export default function RootLayout({
 import { ClientLayout } from "./client-layout"
 
 export const metadata = {
-      generator: 'v0.app'
-    };
+  generator: "v0.app",
+}
