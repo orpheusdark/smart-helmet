@@ -18,8 +18,27 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      document.documentElement.style.setProperty("--scroll-y", `${window.scrollY}`)
+
+      const reveals = document.querySelectorAll(".reveal-on-scroll")
+      reveals.forEach((el) => {
+        const rect = el.getBoundingClientRect()
+        if (rect.top < window.innerHeight * 0.85) {
+          el.classList.add("visible")
+        }
+      })
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll() // Initial check
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <>
+      <div className="fixed inset-0 z-[-1] industrial-grid pointer-events-none opacity-20" />
       {isLoading && <LoadingScreen />}
       <Navigation />
       {children}

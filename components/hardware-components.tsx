@@ -48,16 +48,16 @@ export function HardwareComponents() {
   ]
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24 bg-muted/30 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center animate-fade-in">
           <h2 className="text-4xl font-bold tracking-tight text-foreground uppercase">Hardware Components</h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-4 text-lg leading-relaxed text-foreground/80">
             Industrial-grade sensors and electronics for reliable operation in harsh environments.
           </p>
         </div>
 
-        <div className="mt-16 relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+        <div className="mt-16 relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-border bg-card shadow-2xl animate-slide-in-right">
           <Image
             src="/images/hardware-schematic.png"
             alt="HelmGuard Hardware Schematic"
@@ -67,10 +67,11 @@ export function HardwareComponents() {
         </div>
 
         <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {components.map((component) => (
+          {components.map((component, index) => (
             <div
               key={component.name}
-              className="group rounded-lg border border-border bg-card p-6 transition-all hover:border-accent hover:shadow-lg"
+              className="group rounded-lg border border-border bg-card p-6 transition-all hover:border-accent hover:shadow-lg animate-slide-up opacity-0"
+              style={{ animationDelay: `${0.1 * index}s`, animationFillMode: "forwards" }}
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
@@ -83,7 +84,7 @@ export function HardwareComponents() {
                   <p className="mt-1 text-xs font-mono text-accent-foreground">{component.specs}</p>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{component.purpose}</p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground/80">{component.purpose}</p>
             </div>
           ))}
         </div>

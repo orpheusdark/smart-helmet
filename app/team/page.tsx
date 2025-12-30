@@ -46,13 +46,13 @@ export default function TeamPage() {
             {team.map((member, index) => (
               <Card key={index} className="overflow-hidden border-border bg-card">
                 <CardContent className="p-0">
-                  <div className="aspect-square overflow-hidden bg-muted">
+                  <div className="aspect-square overflow-hidden bg-muted rounded-full">
                     <Image
                       src={member.image || "/placeholder.svg"}
                       alt={member.name}
                       width={600}
                       height={600}
-                      className="h-full w-full object-cover"
+                      className="object-cover rounded-full shadow-xl border-0 mx-0 w-full h-min"
                     />
                   </div>
                   <div className="p-6">

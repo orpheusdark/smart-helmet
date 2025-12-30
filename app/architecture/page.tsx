@@ -41,22 +41,28 @@ export default function ArchitecturePage() {
         </div>
 
         {/* Animated Architecture Diagram */}
-        <div className="mb-16 rounded-lg border border-border bg-card p-8 animate-slide-up">
-          <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Data Flow Architecture</h2>
+        <div className="mb-16 rounded-lg border-2 border-border bg-card/50 backdrop-blur-sm p-8 animate-slide-up shadow-sm">
+          <h2 className="mb-8 text-center text-2xl font-bold text-foreground tracking-tight">Data Flow Architecture</h2>
 
           <div className="relative mx-auto max-w-5xl">
             {/* Layer 1: Sensors */}
             <div className="mb-12 flex items-center justify-center gap-8">
               <div
-                className={`flex h-32 w-32 flex-col items-center justify-center rounded-lg border-2 transition-all ${
+                className={`flex h-32 w-32 flex-col items-center justify-center rounded-lg border-2 transition-all duration-300 ${
                   activeFlow === 0
-                    ? "border-accent-foreground bg-accent shadow-lg shadow-accent-foreground/30"
-                    : "border-border bg-muted"
+                    ? "border-orange-500 bg-orange-500/10 shadow-lg shadow-orange-500/20 scale-105"
+                    : "border-border bg-muted/50"
                 }`}
               >
-                <Radio className="h-8 w-8 text-accent-foreground" />
-                <p className="mt-2 text-center text-xs font-medium">Sensors</p>
-                <p className="text-[10px] text-muted-foreground">MQ-135, DHT22</p>
+                <Radio
+                  className={`h-8 w-8 transition-colors ${activeFlow === 0 ? "text-orange-600 dark:text-orange-400" : "text-foreground/40"}`}
+                />
+                <p
+                  className={`mt-2 text-center text-xs font-bold ${activeFlow === 0 ? "text-foreground" : "text-foreground/50"}`}
+                >
+                  Sensors
+                </p>
+                <p className="text-[10px] font-medium text-foreground/40">MQ-135, DHT22</p>
               </div>
             </div>
 
@@ -72,15 +78,21 @@ export default function ArchitecturePage() {
             {/* Layer 2: Microcontroller */}
             <div className="mb-12 flex items-center justify-center">
               <div
-                className={`flex h-32 w-48 flex-col items-center justify-center rounded-lg border-2 transition-all ${
+                className={`flex h-32 w-48 flex-col items-center justify-center rounded-lg border-2 transition-all duration-300 ${
                   activeFlow === 1
-                    ? "border-accent-foreground bg-accent shadow-lg shadow-accent-foreground/30"
-                    : "border-border bg-muted"
+                    ? "border-orange-500 bg-orange-500/10 shadow-lg shadow-orange-500/20 scale-105"
+                    : "border-border bg-muted/50"
                 }`}
               >
-                <Cpu className="h-8 w-8 text-accent-foreground" />
-                <p className="mt-2 text-center text-xs font-medium">ESP32 Microcontroller</p>
-                <p className="text-[10px] text-muted-foreground">Data Processing & WiFi</p>
+                <Cpu
+                  className={`h-8 w-8 transition-colors ${activeFlow === 1 ? "text-orange-600 dark:text-orange-400" : "text-foreground/40"}`}
+                />
+                <p
+                  className={`mt-2 text-center text-xs font-bold ${activeFlow === 1 ? "text-foreground" : "text-foreground/50"}`}
+                >
+                  ESP32 Microcontroller
+                </p>
+                <p className="text-[10px] font-medium text-foreground/40">Data Processing & WiFi</p>
               </div>
             </div>
 
@@ -96,27 +108,39 @@ export default function ArchitecturePage() {
             {/* Layer 3: Cloud Services */}
             <div className="mb-12 flex items-center justify-center gap-8">
               <div
-                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all ${
+                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all duration-300 ${
                   activeFlow === 2
-                    ? "border-accent-foreground bg-accent shadow-lg shadow-accent-foreground/30"
-                    : "border-border bg-muted"
+                    ? "border-orange-500 bg-orange-500/10 shadow-lg shadow-orange-500/20 scale-105"
+                    : "border-border bg-muted/50"
                 }`}
               >
-                <Cloud className="h-8 w-8 text-accent-foreground" />
-                <p className="mt-2 text-center text-xs font-medium">Cloud Platform</p>
-                <p className="text-[10px] text-muted-foreground">AWS / ThingSpeak</p>
+                <Cloud
+                  className={`h-8 w-8 transition-colors ${activeFlow === 2 ? "text-orange-600 dark:text-orange-400" : "text-foreground/40"}`}
+                />
+                <p
+                  className={`mt-2 text-center text-xs font-bold ${activeFlow === 2 ? "text-foreground" : "text-foreground/50"}`}
+                >
+                  Cloud Platform
+                </p>
+                <p className="text-[10px] font-medium text-foreground/40">AWS / ThingSpeak</p>
               </div>
 
               <div
-                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all ${
+                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all duration-300 ${
                   activeFlow === 2
-                    ? "border-accent-foreground bg-accent shadow-lg shadow-accent-foreground/30"
-                    : "border-border bg-muted"
+                    ? "border-orange-500 bg-orange-500/10 shadow-lg shadow-orange-500/20 scale-105"
+                    : "border-border bg-muted/50"
                 }`}
               >
-                <Database className="h-8 w-8 text-accent-foreground" />
-                <p className="mt-2 text-center text-xs font-medium">Database</p>
-                <p className="text-[10px] text-muted-foreground">Time-series Data</p>
+                <Database
+                  className={`h-8 w-8 transition-colors ${activeFlow === 2 ? "text-orange-600 dark:text-orange-400" : "text-foreground/40"}`}
+                />
+                <p
+                  className={`mt-2 text-center text-xs font-bold ${activeFlow === 2 ? "text-foreground" : "text-foreground/50"}`}
+                >
+                  Database
+                </p>
+                <p className="text-[10px] font-medium text-foreground/40">Time-series Data</p>
               </div>
             </div>
 
@@ -137,27 +161,39 @@ export default function ArchitecturePage() {
             {/* Layer 4: Applications */}
             <div className="flex items-center justify-center gap-8">
               <div
-                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all ${
+                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all duration-300 ${
                   activeFlow === 3
-                    ? "border-accent-foreground bg-accent shadow-lg shadow-accent-foreground/30"
-                    : "border-border bg-muted"
+                    ? "border-orange-500 bg-orange-500/10 shadow-lg shadow-orange-500/20 scale-105"
+                    : "border-border bg-muted/50"
                 }`}
               >
-                <Smartphone className="h-8 w-8 text-accent-foreground" />
-                <p className="mt-2 text-center text-xs font-medium">Dashboard</p>
-                <p className="text-[10px] text-muted-foreground">Web & Mobile</p>
+                <Smartphone
+                  className={`h-8 w-8 transition-colors ${activeFlow === 3 ? "text-orange-600 dark:text-orange-400" : "text-foreground/40"}`}
+                />
+                <p
+                  className={`mt-2 text-center text-xs font-bold ${activeFlow === 3 ? "text-foreground" : "text-foreground/50"}`}
+                >
+                  Dashboard
+                </p>
+                <p className="text-[10px] font-medium text-foreground/40">Web & Mobile</p>
               </div>
 
               <div
-                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all ${
+                className={`flex h-32 w-40 flex-col items-center justify-center rounded-lg border-2 transition-all duration-300 ${
                   activeFlow === 4
-                    ? "border-accent-foreground bg-accent shadow-lg shadow-accent-foreground/30"
-                    : "border-border bg-muted"
+                    ? "border-orange-500 bg-orange-500/10 shadow-lg shadow-orange-500/20 scale-105"
+                    : "border-border bg-muted/50"
                 }`}
               >
-                <Bell className="h-8 w-8 text-accent-foreground" />
-                <p className="mt-2 text-center text-xs font-medium">Alert System</p>
-                <p className="text-[10px] text-muted-foreground">SMS / Email / App</p>
+                <Bell
+                  className={`h-8 w-8 transition-colors ${activeFlow === 4 ? "text-orange-600 dark:text-orange-400" : "text-foreground/40"}`}
+                />
+                <p
+                  className={`mt-2 text-center text-xs font-bold ${activeFlow === 4 ? "text-foreground" : "text-foreground/50"}`}
+                >
+                  Alert System
+                </p>
+                <p className="text-[10px] font-medium text-foreground/40">SMS / Email / App</p>
               </div>
             </div>
           </div>

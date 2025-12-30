@@ -99,72 +99,63 @@ export default function DashboardPage() {
   const safeCount = workers.filter((w) => getWorkerStatus(w) === "safe").length
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute h-2 w-2 rounded-full bg-accent-foreground/5 animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${10 + Math.random() * 10}s`,
-            }}
-          />
-        ))}
-      </div>
+    <main className="min-h-screen bg-background relative overflow-hidden">
+      <div className="fixed inset-0 bg-grid-animate opacity-20 pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="mb-8 animate-fade-in">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground lg:text-4xl">Live Worker Dashboard</h1>
+          <h1 className="text-3xl font-black tracking-tight text-foreground lg:text-5xl uppercase">
+            Live Worker Dashboard
+          </h1>
           <p className="mt-2 text-lg text-muted-foreground">Real-time monitoring of all workers across India</p>
         </div>
 
         {/* Summary Cards */}
         <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div
-            className="rounded-lg border border-border bg-card p-6 animate-slide-up hover:scale-105 transition-transform"
+            className="rounded-lg border-2 border-border bg-card p-6 animate-slide-up hover:scale-105 transition-transform shadow-sm"
             style={{ animationDelay: "0.1s" }}
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium text-muted-foreground">Total Workers</h3>
-              <User className="h-5 w-5 text-muted-foreground" />
+              <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/60">Total Workers</h3>
+              <User className="h-5 w-5 text-foreground/40" />
             </div>
-            <p className="mt-2 text-3xl font-bold text-card-foreground">{workers.length}</p>
+            <p className="mt-2 text-4xl font-black text-foreground">{workers.length}</p>
           </div>
 
           <div
-            className="rounded-lg border border-chart-2 bg-chart-2/10 p-6 animate-slide-up hover:scale-105 transition-transform"
+            className="rounded-lg border-2 border-chart-2 bg-chart-2/10 p-6 animate-slide-up hover:scale-105 transition-transform shadow-md shadow-chart-2/10"
             style={{ animationDelay: "0.2s" }}
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium text-muted-foreground">Safe</h3>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-chart-2">Safe</h3>
               <CheckCircle className="h-5 w-5 text-chart-2" />
             </div>
-            <p className="mt-2 text-3xl font-bold text-chart-2">{safeCount}</p>
+            <p className="mt-2 text-4xl font-black text-chart-2">{safeCount}</p>
           </div>
 
           <div
-            className="rounded-lg border border-accent-foreground bg-accent-foreground/10 p-6 animate-slide-up hover:scale-105 transition-transform"
+            className="rounded-lg border-2 border-orange-500 bg-orange-500/10 p-6 animate-slide-up hover:scale-105 transition-transform shadow-md shadow-orange-500/10"
             style={{ animationDelay: "0.3s" }}
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium text-muted-foreground">Warning</h3>
-              <AlertTriangle className="h-5 w-5 text-accent-foreground" />
+              <h3 className="text-sm font-bold uppercase tracking-wider text-orange-600 dark:text-orange-400">
+                Warning
+              </h3>
+              <AlertTriangle className="h-5 w-5 text-orange-600 dark:text-orange-400" />
             </div>
-            <p className="mt-2 text-3xl font-bold text-accent-foreground">{warningCount}</p>
+            <p className="mt-2 text-4xl font-black text-orange-600 dark:text-orange-400">{warningCount}</p>
           </div>
 
           <div
-            className="rounded-lg border border-destructive bg-destructive/10 p-6 animate-slide-up hover:scale-105 transition-transform"
+            className="rounded-lg border-2 border-destructive bg-destructive/10 p-6 animate-slide-up hover:scale-105 transition-transform shadow-md shadow-destructive/10"
             style={{ animationDelay: "0.4s" }}
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium text-muted-foreground">Danger</h3>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-destructive">Danger</h3>
               <XCircle className="h-5 w-5 text-destructive" />
             </div>
-            <p className="mt-2 text-3xl font-bold text-destructive">{dangerCount}</p>
+            <p className="mt-2 text-4xl font-black text-destructive">{dangerCount}</p>
           </div>
         </div>
 
@@ -175,20 +166,20 @@ export default function DashboardPage() {
             return (
               <div
                 key={worker.id}
-                className={`rounded-lg border-2 bg-card p-6 transition-all hover:scale-[1.02] animate-fade-in ${
+                className={`rounded-lg border-2 bg-card p-6 transition-all hover:scale-[1.01] animate-fade-in ${
                   status === "danger"
-                    ? "border-destructive shadow-lg shadow-destructive/20 animate-glow"
+                    ? "border-destructive shadow-md shadow-destructive/20 animate-glow"
                     : status === "warning"
-                      ? "border-accent-foreground"
-                      : "border-border"
+                      ? "border-orange-500 shadow-md shadow-orange-500/10"
+                      : "border-border shadow-sm"
                 }`}
-                style={{ animationDelay: `${0.1 * index}s` }}
+                style={{ animationDelay: `${0.05 * index}s` }}
               >
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="text-lg font-semibold text-card-foreground">{worker.name}</h3>
-                      <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
+                      <h3 className="text-lg font-bold text-foreground">{worker.name}</h3>
+                      <span className="rounded-full bg-muted border border-border px-2 py-0.5 text-xs font-bold text-foreground/80">
                         {worker.id}
                       </span>
                     </div>
@@ -198,12 +189,12 @@ export default function DashboardPage() {
                     </div>
                   </div>
                   <div
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    className={`rounded-full px-3 py-1 text-xs font-bold shadow-sm ${
                       status === "danger"
                         ? "bg-destructive text-destructive-foreground"
                         : status === "warning"
-                          ? "bg-accent text-accent-foreground"
-                          : "bg-chart-2/20 text-chart-2"
+                          ? "bg-orange-500 text-white"
+                          : "bg-chart-2 text-white"
                     }`}
                   >
                     {status.toUpperCase()}
@@ -212,9 +203,9 @@ export default function DashboardPage() {
 
                 <div className="mt-6 grid grid-cols-3 gap-4">
                   <div>
-                    <p className="text-xs text-muted-foreground">Gas Level</p>
-                    <p className="mt-1 text-xl font-bold text-card-foreground">{worker.gasLevel.toFixed(0)}</p>
-                    <p className="text-xs text-muted-foreground">PPM</p>
+                    <p className="text-xs font-bold text-foreground/60">Gas Level</p>
+                    <p className="mt-1 text-2xl font-black text-foreground">{worker.gasLevel.toFixed(0)}</p>
+                    <p className="text-[10px] font-bold text-foreground/50 uppercase tracking-wider">PPM</p>
                     <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted">
                       <div
                         className={`h-full transition-all ${
@@ -230,9 +221,9 @@ export default function DashboardPage() {
                   </div>
 
                   <div>
-                    <p className="text-xs text-muted-foreground">Temperature</p>
-                    <p className="mt-1 text-xl font-bold text-card-foreground">{worker.temperature.toFixed(1)}</p>
-                    <p className="text-xs text-muted-foreground">°C</p>
+                    <p className="text-xs font-bold text-foreground/60">Temperature</p>
+                    <p className="mt-1 text-2xl font-black text-foreground">{worker.temperature.toFixed(1)}</p>
+                    <p className="text-[10px] font-bold text-foreground/50 uppercase tracking-wider">°C</p>
                     <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted">
                       <div
                         className={`h-full transition-all ${
@@ -248,16 +239,16 @@ export default function DashboardPage() {
                   </div>
 
                   <div>
-                    <p className="text-xs text-muted-foreground">Motion</p>
+                    <p className="text-xs font-bold text-foreground/60">Motion</p>
                     <div className="mt-1 flex items-center gap-1.5">
                       {worker.motion === "normal" ? (
-                        <CheckCircle className="h-4 w-4 text-chart-2" />
+                        <CheckCircle className="h-5 w-5 text-chart-2" />
                       ) : worker.motion === "alert" ? (
-                        <AlertTriangle className="h-4 w-4 text-accent-foreground" />
+                        <AlertTriangle className="h-5 w-5 text-orange-500" />
                       ) : (
-                        <XCircle className="h-4 w-4 text-destructive" />
+                        <XCircle className="h-5 w-5 text-destructive" />
                       )}
-                      <span className="text-sm font-medium capitalize text-card-foreground">{worker.motion}</span>
+                      <span className="text-sm font-bold capitalize text-foreground">{worker.motion}</span>
                     </div>
                   </div>
                 </div>

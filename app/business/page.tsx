@@ -17,25 +17,25 @@ export default function BusinessPage() {
         <section className="mb-16">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Market Opportunity in India</h2>
           <div className="grid gap-6 lg:grid-cols-3">
-            <div className="rounded-lg border border-border bg-card p-6">
-              <Globe className="h-10 w-10 text-accent-foreground" />
-              <h3 className="mt-4 text-xl font-semibold text-card-foreground">Mining Sector</h3>
-              <p className="mt-2 text-3xl font-bold text-accent-foreground">2.5M+</p>
-              <p className="mt-1 text-sm text-muted-foreground">Workers in coal and mineral mining across India</p>
+            <div className="rounded-lg border-2 border-border bg-card p-6 shadow-sm hover:border-orange-500/30 transition-colors group">
+              <Globe className="h-10 w-10 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" />
+              <h3 className="mt-4 text-xl font-bold text-foreground">Mining Sector</h3>
+              <p className="mt-2 text-4xl font-black text-orange-600 dark:text-orange-400">2.5M+</p>
+              <p className="mt-1 text-sm font-medium text-foreground/70">Workers in coal and mineral mining</p>
             </div>
 
-            <div className="rounded-lg border border-border bg-card p-6">
-              <Building2 className="h-10 w-10 text-accent-foreground" />
-              <h3 className="mt-4 text-xl font-semibold text-card-foreground">Construction</h3>
-              <p className="mt-2 text-3xl font-bold text-accent-foreground">60M+</p>
-              <p className="mt-1 text-sm text-muted-foreground">Construction workers in infrastructure projects</p>
+            <div className="rounded-lg border-2 border-border bg-card p-6 shadow-sm hover:border-orange-500/30 transition-colors group">
+              <Building2 className="h-10 w-10 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" />
+              <h3 className="mt-4 text-xl font-bold text-foreground">Construction</h3>
+              <p className="mt-2 text-4xl font-black text-orange-600 dark:text-orange-400">60M+</p>
+              <p className="mt-1 text-sm font-medium text-foreground/70">Construction workers in infra projects</p>
             </div>
 
-            <div className="rounded-lg border border-border bg-card p-6">
-              <Users className="h-10 w-10 text-accent-foreground" />
-              <h3 className="mt-4 text-xl font-semibold text-card-foreground">Industrial Plants</h3>
-              <p className="mt-2 text-3xl font-bold text-accent-foreground">15M+</p>
-              <p className="mt-1 text-sm text-muted-foreground">Workers in chemical, oil & gas facilities</p>
+            <div className="rounded-lg border-2 border-border bg-card p-6 shadow-sm hover:border-orange-500/30 transition-colors group">
+              <Users className="h-10 w-10 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" />
+              <h3 className="mt-4 text-xl font-bold text-foreground">Industrial Plants</h3>
+              <p className="mt-2 text-4xl font-black text-orange-600 dark:text-orange-400">15M+</p>
+              <p className="mt-1 text-sm font-medium text-foreground/70">Workers in chemical, oil & gas facilities</p>
             </div>
           </div>
         </section>
@@ -44,19 +44,19 @@ export default function BusinessPage() {
         <section className="mb-16">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Target Customers</h2>
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-lg border border-border bg-card p-8">
-              <Target className="h-10 w-10 text-accent-foreground" />
-              <h3 className="mt-4 text-xl font-semibold text-card-foreground">Primary Markets</h3>
+            <div className="rounded-lg border-2 border-border bg-card p-8 shadow-sm">
+              <Target className="h-10 w-10 text-orange-600 dark:text-orange-400" />
+              <h3 className="mt-4 text-xl font-bold text-foreground">Primary Markets</h3>
               <ul className="mt-4 space-y-3">
                 {[
-                  "Coal India Limited and subsidiary mines (Jharkhand, Odisha, Chhattisgarh)",
-                  "Construction companies (L&T, GMR, Reliance Infrastructure)",
-                  "Metro rail construction projects (Delhi, Mumbai, Bangalore)",
-                  "Oil & Gas (ONGC, Indian Oil, Reliance Petroleum)",
-                  "Chemical plants (Tata Chemicals, GAIL, RIL)",
+                  "Coal India Limited and subsidiary mines",
+                  "Construction companies (L&T, GMR, Reliance)",
+                  "Metro rail projects (Delhi, Mumbai, Bangalore)",
+                  "Oil & Gas (ONGC, Indian Oil, Reliance)",
+                  "Chemical plants (Tata Chemicals, GAIL)",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-foreground" />
+                  <li key={item} className="flex items-start gap-2 text-sm font-bold text-foreground/80">
+                    <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -64,7 +64,7 @@ export default function BusinessPage() {
             </div>
 
             <div className="rounded-lg border border-border bg-card p-8">
-              <TrendingUp className="h-10 w-10 text-accent-foreground" />
+              <TrendingUp className="h-10 w-10 text-destructive" />
               <h3 className="mt-4 text-xl font-semibold text-card-foreground">Key Benefits for Customers</h3>
               <div className="mt-4 space-y-4">
                 <div>
@@ -101,7 +101,7 @@ export default function BusinessPage() {
           <h2 className="mb-6 text-2xl font-bold text-foreground">Revenue Model (Indian Market)</h2>
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-lg border border-border bg-card p-8">
-              <IndianRupee className="h-10 w-10 text-accent-foreground" />
+              <IndianRupee className="h-10 w-10 text-chart-1" />
               <h3 className="mt-4 text-xl font-semibold text-card-foreground">Pricing Structure</h3>
               <div className="mt-6 space-y-3">
                 <div className="flex items-center justify-between rounded-lg bg-muted p-4">
@@ -124,7 +124,7 @@ export default function BusinessPage() {
             </div>
 
             <div className="rounded-lg border border-border bg-card p-8">
-              <Shield className="h-10 w-10 text-accent-foreground" />
+              <Shield className="h-10 w-10 text-chart-1" />
               <h3 className="mt-4 text-xl font-semibold text-card-foreground">Example Deployment</h3>
               <div className="mt-6 space-y-4">
                 <div>
@@ -150,7 +150,7 @@ export default function BusinessPage() {
                   </div>
                   <div className="border-t border-border pt-2 flex justify-between font-bold text-foreground">
                     <span>Total Contract Value</span>
-                    <span className="text-accent-foreground">₹47,95,000</span>
+                    <span className="text-destructive">₹47,95,000</span>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground">
@@ -220,17 +220,17 @@ export default function BusinessPage() {
             <div className="grid gap-8 lg:grid-cols-3">
               <div className="text-center">
                 <p className="text-sm text-muted-foreground">Accident Prevention Savings</p>
-                <p className="mt-2 text-3xl font-bold text-accent-foreground">₹50L - ₹2Cr</p>
+                <p className="mt-2 text-3xl font-bold text-accent">₹50L - ₹2Cr</p>
                 <p className="mt-1 text-xs text-muted-foreground">Per major accident prevented annually</p>
               </div>
               <div className="text-center">
                 <p className="text-sm text-muted-foreground">Insurance Premium Reduction</p>
-                <p className="mt-2 text-3xl font-bold text-accent-foreground">15-25%</p>
+                <p className="mt-2 text-3xl font-bold text-accent">15-25%</p>
                 <p className="mt-1 text-xs text-muted-foreground">With documented safety improvements</p>
               </div>
               <div className="text-center">
                 <p className="text-sm text-muted-foreground">ROI Timeline</p>
-                <p className="mt-2 text-3xl font-bold text-accent-foreground">6-12 months</p>
+                <p className="mt-2 text-3xl font-bold text-accent">6-12 months</p>
                 <p className="mt-1 text-xs text-muted-foreground">Typical payback period for deployments</p>
               </div>
             </div>
